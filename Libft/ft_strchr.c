@@ -11,35 +11,30 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <string.h>
-#include <stdio.h>
 
 char	*ft_strchr(const char *s, int c)
 {
 	char	*str;
-	size_t	i;
-	size_t	pos;
-	size_t	len;
 
 	str = (char *)s;
-	i = 0;
-	len = strlen(str);
-	while (str[i] != '\0')
+	while (*str != c)
 	{
-		if (str[i] == c)
+		if (*str == '\0')
 		{
-			pos = len - i;
-			strlcpy(str, &str[i], pos - 1);
+			return (0);
 		}
-		i++;
+		str++;
 	}
-	return((char *)s);
+	return (str);
 }
-
+/*
 int	main()
 {
 	int			c = 'c';
 	const char	*s = "Hola, la letra de control es la c";
 	char		*a = ft_strchr(s, c);
-	printf("El resultado es: %s, return value: %s\n", s, a);
+	char		*b = strchr(s, c);
+	printf("La frase es: %s\nEl resultado es: %s\n", s, a);
+	printf("El resultado esperado es: %s\n", b);
 }
+*/
