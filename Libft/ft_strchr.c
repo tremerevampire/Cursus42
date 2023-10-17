@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acastejo <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: acastejo <acastejo@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/16 15:09:21 by acastejo          #+#    #+#             */
-/*   Updated: 2023/09/16 17:12:44 by acastejo         ###   ########.fr       */
+/*   Updated: 2023/10/15 17:28:47 by acastejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ char	*ft_strchr(const char *s, int c)
 	char	*str;
 
 	str = (char *)s;
+	c = (char) c;
 	while (*str != c)
 	{
 		if (*str == '\0')
@@ -27,14 +28,3 @@ char	*ft_strchr(const char *s, int c)
 	}
 	return (str);
 }
-/*
-int	main()
-{
-	int			c = 'c';
-	const char	*s = "Hola, la letra de control es la c";
-	char		*a = ft_strchr(s, c);
-	char		*b = strchr(s, c);
-	printf("La frase es: %s\nEl resultado es: %s\n", s, a);
-	printf("El resultado esperado es: %s\n", b);
-}
-*/

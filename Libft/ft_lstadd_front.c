@@ -1,40 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acastejo <acastejo@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/12 19:29:58 by acastejo          #+#    #+#             */
-/*   Updated: 2023/10/15 22:24:27 by acastejo         ###   ########.fr       */
+/*   Created: 2023/10/15 15:22:29 by acastejo          #+#    #+#             */
+/*   Updated: 2023/10/15 17:28:04 by acastejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	int	i;
-	int	num;
-	int	sign;
-
-	i = 0;
-	num = 0;
-	sign = 1;
-	while (str[i] == ' ' || str[i] == '\n' || str[i] == '\v'
-		|| str[i] == '\t' || str[i] == '\f' || str[i] == '\r')
-		i++;
-	if (str[i] == '-' || str[i] == '+')
+	if (lst && new)
 	{
-		if (str[i] == '-')
-			sign = -1;
-		i++;
-	}	
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		num = num * 10;
-		num = num + str[i] - '0';
-		i++;
+		new->next = *lst;
+		*lst = new;
 	}
-	return (num * sign);
 }

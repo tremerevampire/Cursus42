@@ -1,40 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acastejo <acastejo@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/12 19:29:58 by acastejo          #+#    #+#             */
-/*   Updated: 2023/10/15 22:24:27 by acastejo         ###   ########.fr       */
+/*   Created: 2023/09/25 20:40:42 by acastejo          #+#    #+#             */
+/*   Updated: 2023/10/15 17:29:09 by acastejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int	i;
-	int	num;
-	int	sign;
+	char	*buffer;
+	int		i;
+	int		j;
 
 	i = 0;
-	num = 0;
-	sign = 1;
-	while (str[i] == ' ' || str[i] == '\n' || str[i] == '\v'
-		|| str[i] == '\t' || str[i] == '\f' || str[i] == '\r')
-		i++;
-	if (str[i] == '-' || str[i] == '+')
+	j = 0;
+	buffer = ft_calloc(ft_strlen(s1) + ft_strlen(s2) + 1, sizeof(char));
+	if (!buffer)
+		return (NULL);
+	while (s1[i] != '\0')
 	{
-		if (str[i] == '-')
-			sign = -1;
-		i++;
-	}	
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		num = num * 10;
-		num = num + str[i] - '0';
+		buffer[i] = s1[i];
 		i++;
 	}
-	return (num * sign);
+	while (s2[j] != '\0')
+	{
+		buffer[i] = s2[j];
+		i++;
+		j++;
+	}
+	return (buffer);
 }

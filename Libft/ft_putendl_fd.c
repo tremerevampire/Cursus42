@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acastejo <acastejo@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/13 15:17:55 by acastejo          #+#    #+#             */
-/*   Updated: 2023/10/15 17:27:45 by acastejo         ###   ########.fr       */
+/*   Created: 2023/09/28 18:26:02 by acastejo          #+#    #+#             */
+/*   Updated: 2023/10/17 17:13:21 by acastejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libc.h"
 
-void	ft_bzero(void *s, size_t n)
+void	ft_putendl_fd(char *s, int fd)
 {
-	ft_memset(s, '\0', n);
+	write(fd, s, ft_strlen(s));
+	write(fd, "\n", 1);
 }

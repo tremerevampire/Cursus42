@@ -1,40 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acastejo <acastejo@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/12 19:29:58 by acastejo          #+#    #+#             */
-/*   Updated: 2023/10/15 22:24:27 by acastejo         ###   ########.fr       */
+/*   Created: 2023/10/15 15:29:43 by acastejo          #+#    #+#             */
+/*   Updated: 2023/10/15 15:40:25 by acastejo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+int	ft_lstsize(t_list *lst)
 {
 	int	i;
-	int	num;
-	int	sign;
 
 	i = 0;
-	num = 0;
-	sign = 1;
-	while (str[i] == ' ' || str[i] == '\n' || str[i] == '\v'
-		|| str[i] == '\t' || str[i] == '\f' || str[i] == '\r')
-		i++;
-	if (str[i] == '-' || str[i] == '+')
+	while (lst)
 	{
-		if (str[i] == '-')
-			sign = -1;
-		i++;
-	}	
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		num = num * 10;
-		num = num + str[i] - '0';
+		lst = lst->next;
 		i++;
 	}
-	return (num * sign);
+	return (i);
 }
